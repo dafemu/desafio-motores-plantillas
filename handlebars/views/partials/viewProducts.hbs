@@ -1,0 +1,20 @@
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+    </tr>
+    {{#if productExist}}
+        {{#each productList}}
+        <tr>
+            <td>{{this.nombre}}</td>
+            <td>{{this.precio}}</td>
+            <td>{{this.thumbnail}}</td>
+        </tr>
+        {{/each}}
+    {{/if}}
+</table>
+
+    {{#if !productExist}}
+        <p>No se encontraron productos</p>
+    {{/if}}
