@@ -1,35 +1,24 @@
-<form action="http://localhost:8080/productos" method="POST">
-    <label for="productoNombre">Nombre Producto:</label><br>
-    <input type="text" name="productoNombre">
-    <br>
-    <br>
-    <label for="productoPrecio">Precio:</label><br>
-    <input type="number" name="productoPrecio">
-    <br>
-    <br>
-    <label for="productoImagen">Imagen:</label><br>
-    <input type="text" name="productoImagen">
-    <br>
-    <br>
-    <input type="submit" value="Enviar">
-</form>
-<br>
-<table>
-    {{#if productExist}}
-        <tr>
-            <th>Nombre</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-        </tr>
-    
-            {{#each productList}}
-            <tr>
-                <td>{{this.title}}</td>
-                <td>{{this.price}}</td>
-                <td>{{this.thumbnail}}</td>
-            </tr>
-            {{/each}}
-        {{else}}
-            <p>No se encontraron productos</p>
-    {{/if}}
-</table>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-md-6 p-4 text-center">
+            <form action="http://localhost:8080/productos" method="POST">
+                <div class="mb-3">
+                    <label for="productoNombre" class="form-label">Nombre Producto:</label>
+                    <input type="text" class="form-control" name="productoNombre" placeholder="ej: Ipad">
+                </div>
+                <div class="mb-3">
+                    <label for="productoPrecio" class="form-label">Precio:</label>
+                    <input type="number" class="form-control" name="productoPrecio" placeholder="ej: 800">
+                </div>
+                <div class="mb-3">
+                    <label for="productoImagen" class="form-label">Imagen:</label>
+                    <input type="text" class="form-control" name="productoImagen" placeholder="ej: URL">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
+        </div>
+         <div class="col-12 col-md-6 p-4">
+            {{> viewProducts }}
+        </div>
+    </div>
+</div>

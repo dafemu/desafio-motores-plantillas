@@ -44,7 +44,7 @@ router.get("/", function (req, res) {
 
 router.post("/", function (req, res) {
     console.log('POST request recibido');
-    const nuevoProducto = { 
+    const nuevoProducto = {
         title: req.body.productoNombre,
         price: req.body.productoPrecio,
         thumbnail: req.body.productoImagen,
