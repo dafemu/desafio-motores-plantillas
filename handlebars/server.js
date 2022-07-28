@@ -14,8 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //requires propios
-const getProductos = require('./controller');
-const setProducto = require('./controller');
+const modController = require('./controller');
 
 //establecemoos la configuracion de handlebars
 app.engine(
@@ -37,11 +36,11 @@ app.set("views", "./views");
 //rutas y metodos
 router.get("/", function (req, res) {
     console. log('GET request recibido');
-    const productos = getProductos();
+    const productos = modController.getProductos();
     (productos.length > 0)
     ? res.render("main", { productList: productos, productExist:true })
     : res.render("main", { productList: productos, productExist:false })
-});
+}); 
 
 router.post("/", function (req, res) {
     console.log('POST request recibido');
@@ -50,11 +49,8 @@ router.post("/", function (req, res) {
         price: req.body.productoPrecio,
         thumbnail: req.body.productoImagen,
     };
-    setProducto(nuevoProducto);
-    res.status(201).json({
-        result: 'Producto Agregado',
-        NuevoProducto: nuevoProducto,
-    });
+    const newList = modController.setProducto(nuevoProducto);
+    res.render("main", { productList: newList, productExist:true })
 });
 
 

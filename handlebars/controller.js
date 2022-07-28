@@ -1,15 +1,15 @@
 let productos = [];
 
-module.exports = function getProductos(){
+function getProductos(){
     console.log("entro al getProductos");
     return productos;
 }
 
-module.exports = function getProducto(id){
+function getProducto(id){
     return productos.find(prod => prod.id === id) || { error: 'producto no encontrado' };
 }
 
-module.exports = function setProducto(objProducto) {
+function setProducto(objProducto) {
     console.log("entro al setproduct");
     if(productos.length == 0){
         objProducto.id = 1;
@@ -25,8 +25,13 @@ module.exports = function setProducto(objProducto) {
     return productos;
 }
 
-module.exports = function borrarProducto(id){
+function borrarProducto(id){
     const productosNuevos = productos.filter(prod => prod.id !== id);
     productos = productosNuevos;
     return productos;
+}
+
+module.exports = {
+    getProductos: getProductos,
+    setProducto: setProducto,
 }
