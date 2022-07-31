@@ -1,0 +1,16 @@
+table(class="table table-striped")
+    if productExist
+        thead
+            tr
+                th Nombre
+                th Precio
+                th Imagen
+        tbody
+            each product in productList
+            tr
+                td= product.title
+                td= product.price
+                td= img(src=product.thumbnail, alt=product.title).img-thumbnail
+    else
+        .alert.alert-warning(role="alert")
+            p No se encontraron productos

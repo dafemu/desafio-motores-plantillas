@@ -1,0 +1,47 @@
+.container-fluid
+    .row
+        .col-12.col-md-6.p-4.text-center
+            form(action="http://localhost:8080/productos" method="POST")
+                .mb-3
+                    label(
+                        for="productoNombre" 
+                        class="form-label" 
+                        text='Nombre Producto:'
+                    )
+                    input(
+                        type="text" 
+                        class="form-control" 
+                        name="productoNombre" 
+                        placeholder="ej: Ipad"
+                    )
+
+                .mb-3
+                    label(
+                        for="productoPrecio" 
+                        class="form-label" 
+                        text="Precio:"
+                    )
+                    input(
+                        type="number" 
+                        class="form-control" 
+                        name="productoPrecio" 
+                        placeholder="ej: 800"
+                    )
+                
+                .mb-3
+                    label(
+                        for="productoImagen" 
+                        class="form-label" 
+                        text="Imagen:"
+                    )
+                    input(
+                        type="text" 
+                        class="form-control" 
+                        name="productoImagen" 
+                        placeholder="ej: URL"
+                    )
+                
+                button(type="submit" class="btn btn-primary w-100") Enviar 
+        
+        .col-12.col-md-6 p-4
+            include viewProducts.pug
