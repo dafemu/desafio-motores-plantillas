@@ -24,8 +24,8 @@ router.get("/", function (req, res) {
     console. log('GET request recibido');
     const productos = modController.getProductos();
     (productos.length > 0)
-    ? res.render("main", { productList: productos, productExist:true })
-    : res.render("main", { productList: productos, productExist:false })
+    ? res.render("layouts/index", { productList: productos, productExist:true })
+    : res.render("layouts/index", { productList: productos, productExist:false })
 });
 
 router.post("/", function (req, res) {
@@ -36,9 +36,8 @@ router.post("/", function (req, res) {
         thumbnail: req.body.productoImagen,
     };
     const newList = modController.setProducto(nuevoProducto);
-    res.render("main", { productList: newList, productExist:true })
+    res.render("layouts/index", { productList: newList, productExist:true })
 });
-
 
 //configuro la ruta
 app.use('/productos', router);
