@@ -1,5 +1,5 @@
 <table class="table table-striped">
-    <% if productExist { %>
+    <% if (productExist) { %>
     <thead>
         <tr>
             <th>Nombre</th>
@@ -8,18 +8,19 @@
         </tr>
     </thead>
     <tbody>
-        <% for (let i = 0; i < productList.length; i++) { %>
-        <tr>
-            <td><%=productList[i].title%></td>
-            <td><%=productList[i].price%></td>
-            <td>
-                <img src="<%=productList[i].thumbnail%>" class="img-thumbnail">
-            </td>
-        </tr>
-        <% } } %>
+        <% for (let i  = 0; i < productList.length; i++) { %>
+            <tr>
+                <td><%=productList[i].title%></td>
+                <td><%=productList[i].price%></td>
+                <td>
+                    <img src="<%=  productList[i].thumbnail %>" class="img-thumbnail">
+                </td>
+            </tr>
+        <% } %>
     </tbody>
     <% }else{ %>
         <div class="alert alert-warning" role="alert">
             No se encontraron productos
         </div>
+    <% } %>
 </table>
